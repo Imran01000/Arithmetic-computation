@@ -3,4 +3,5 @@
 read -p "Enter the three numbers" a;
 read b;
 read c;
-echo "$a , $b , $c";
+result=`echo "scale=3; $a+$b*$c" | bc -l`;
+echo "result is $result";
