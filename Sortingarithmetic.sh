@@ -30,3 +30,19 @@ do
 	expressionArray[$itr]="${expression[$itr]}";
 done
 echo "${expressionArray[@]}"
+
+#Sorting the value in descending order.
+for((itr=1;itr<=4;itr++))
+do 
+   for((inr=1;inr<=3;inr++))
+   do
+      if ((`echo "${expressionArray[$inr]} < ${expressionArray[$inr+1]}" | bc -l`))
+      then
+         temp="${expressionArray[$inr]}";
+         expressionArray[$inr]="${expressionArray[$inr+1]}";
+         expressionArray[$inr+1]=$temp;
+      fi
+   done
+done
+echo "${expressionArray[@]}"
+
